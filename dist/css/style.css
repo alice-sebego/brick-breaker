@@ -31,6 +31,9 @@ section {
     font: 3vw "Ubuntu", sans-serif;
     color: #ddd;
     text-align: center; }
+    section h2 #brick-broken {
+      color: #3998e6;
+      font-weight: bold; }
     section h2 #fail {
       font-size: smaller;
       color: #f55353; }

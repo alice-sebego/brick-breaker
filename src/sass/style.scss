@@ -41,9 +41,15 @@ section{
         color: $light-color;
         text-align: center;
 
+        #brick-broken{
+            color: $score-color;
+            font-weight: bold;
+        }
+
         #fail{
             font-size: smaller;
             color: $game-over;
         }
+
     }
 }

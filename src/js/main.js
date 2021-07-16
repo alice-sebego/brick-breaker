@@ -1,17 +1,20 @@
 // https://developer.mozilla.org/fr/docs/Web/API/Canvas_API
 
+// CANVAS
 const $canvas = document.querySelector("canvas");
 const ctx = $canvas.getContext("2d");
 $canvas.width = $canvas.getBoundingClientRect().width;
 $canvas.height = $canvas.getBoundingClientRect().height;
+// DISPLAY SCORE
 const $score = document.querySelector("#score");
+const $brickBroken = document.querySelector("#brick-broken");
 
 const radiusBall = 10, barWidth = 75, barHeight = 10,
 nbCol = 8, nbRow = 5, widthBrick = 75, heightBrick = 20;
 
 let x = $canvas.width / 2, y = $canvas.height - 30,
 barX = ($canvas.width - barWidth) / 2, end = false,
-speedX = 5, speedY = -5;
+speedX = 5, speedY = -5, result = 0;
 
 const drawBall = () =>{
 
@@ -68,7 +71,7 @@ const drawBricks = () => {
 
 const draw = () => {
 
-    if(end === false){
+    if(!end){
         ctx.clearRect(0, 0, $canvas.width, $canvas.height);
         drawBall();
         drawBar();
@@ -100,3 +103,10 @@ const draw = () => {
 }
 
 draw();
+
+$canvas.addEventListener("click", () => {
+    if(end){
+        end = false;
+        document.location.reload();
+    }
+});
