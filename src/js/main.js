@@ -1,5 +1,3 @@
-// https://developer.mozilla.org/fr/docs/Web/API/Canvas_API
-
 // CANVAS
 const $canvas = document.querySelector("canvas");
 const ctx = $canvas.getContext("2d");
@@ -9,7 +7,7 @@ $canvas.height = $canvas.getBoundingClientRect().height;
 const $score = document.querySelector("#score");
 const $brickBroken = document.querySelector("#brick-broken");
 
-const radiusBall = 10, barWidth = 75, barHeight = 10,
+const radiusBall = 10, barWidth = 100, barHeight = 10,
 nbCol = 8, nbRow = 5, widthBrick = 75, heightBrick = 20;
 
 let x = $canvas.width / 2, y = $canvas.height - 30,
