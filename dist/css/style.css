@@ -31,5 +31,8 @@ section {
     font: 3vw "Ubuntu", sans-serif;
     color: #ddd;
     text-align: center; }
+    section h2 #fail {
+      font-size: smaller;
+      color: #f55353; }
 
 /*# sourceMappingURL=style.css.map */

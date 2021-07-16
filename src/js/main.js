@@ -4,12 +4,14 @@ const $canvas = document.querySelector("canvas");
 const ctx = $canvas.getContext("2d");
 $canvas.width = $canvas.getBoundingClientRect().width;
 $canvas.height = $canvas.getBoundingClientRect().height;
+const $score = document.querySelector("#score");
 
 const radiusBall = 10, barWidth = 75, barHeight = 10,
 nbCol = 8, nbRow = 5, widthBrick = 75, heightBrick = 20;
 
 let x = $canvas.width / 2, y = $canvas.height - 30,
-barX = ($canvas.width - barWidth) / 2;
+barX = ($canvas.width - barWidth) / 2, end = false,
+speedX = 5, speedY = -5;
 
 const drawBall = () =>{
 
@@ -21,8 +23,6 @@ const drawBall = () =>{
 
 }
 
-drawBall();
-
 const drawBar = () =>{
 
     ctx.beginPath();
@@ -31,8 +31,6 @@ const drawBar = () =>{
     ctx.fill();
     ctx.closePath();
 }
-
-drawBar();
 
 const bricks = [];
 
@@ -45,8 +43,6 @@ for(let i = 0; i < nbRow; i++){
     }
 
 }
-
-console.log(bricks)
 
 const drawBricks = () => {
 
@@ -70,4 +66,37 @@ const drawBricks = () => {
     }
 }
 
-drawBricks();
+const draw = () => {
+
+    if(end === false){
+        ctx.clearRect(0, 0, $canvas.width, $canvas.height);
+        drawBall();
+        drawBar();
+        drawBricks();
+
+        if(x + speedX > $canvas.width - radiusBall || 
+           x + speedX < radiusBall) speedX = -speedX;
+ 
+        if(y + speedY < radiusBall ) speedY = -speedY;
+
+        if(y + speedY > $canvas.height - radiusBall){
+            if( x > barX && x < barX - barWidth){
+                speedX = speedX + 0.1;
+                speedY = speedY + 0.1;
+                speedY = -speedY;
+            } else {
+                end = true;
+                const gameOver = "<span id='fail'><br>Perdu ! <br>Clique sur le casse-brique pour rejouer</span>"
+                $score.innerHTML += gameOver; 
+            }
+        }
+            
+
+        x += speedX;
+        y += speedY;
+
+        requestAnimationFrame(draw);
+    }
+}
+
+draw();

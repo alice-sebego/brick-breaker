@@ -40,5 +40,10 @@ section{
         font: 3vw $font-title;
         color: $light-color;
         text-align: center;
+
+        #fail{
+            font-size: smaller;
+            color: $game-over;
+        }
     }
 }
