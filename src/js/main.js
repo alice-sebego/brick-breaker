@@ -76,6 +76,7 @@ const draw = () => {
         drawBall();
         drawBar();
         drawBricks();
+        console.log(end);
 
         if(x + speedX > $canvas.width - radiusBall || 
            x + speedX < radiusBall) speedX = -speedX;
@@ -89,6 +90,7 @@ const draw = () => {
                 speedY = -speedY;
             } else {
                 end = true;
+                console.log(end);
                 const gameOver = "<span id='fail'><br>Perdu ! <br>Clique sur le casse-brique pour rejouer</span>"
                 $score.innerHTML += gameOver; 
             }
@@ -103,6 +105,18 @@ const draw = () => {
 }
 
 draw();
+
+const moveMouse = e => {
+    let posXBarCanvas = e.clientX - $canvas.offsetLeft;
+    
+    console.log(posXBarCanvas);
+    
+    if(posXBarCanvas > 35 && posXBarCanvas < $canvas.width - 35){
+        barX = posXBarCanvas - barWidth / 2;
+    }
+}
+
+document.addEventListener("mousemove", moveMouse);
 
 $canvas.addEventListener("click", () => {
     if(end){
