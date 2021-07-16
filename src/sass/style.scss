@@ -51,5 +51,10 @@ section{
             color: $game-over;
         }
 
+        #victory{
+            font-size: smaller;
+            color: $victory-color;
+        }
+
     }
 }

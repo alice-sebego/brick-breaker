@@ -69,6 +69,36 @@ const drawBricks = () => {
     }
 }
 
+const brokenBrick = () => {
+
+    for(let i = 0; i < nbRow; i++){
+        for(let j = 0; j < nbCol; j++){
+
+            let currentBrick = bricks[i][j];
+
+            if(currentBrick.status === 1){
+
+                if(x > currentBrick.x &&
+                   x < currentBrick.x + widthBrick &&
+                   y > currentBrick.y &&
+                   y < currentBrick.y + heightBrick){
+
+                    speedY = -speedY;
+                    currentBrick.status = 0;
+                    result ++;
+                    $brickBroken.textContent = result;
+
+                    if(result === nbRow * nbCol){
+                        const victory = "<span id='victory'><br>Bravo ! <br>Clique sur le casse-brique pour rejouer</span>"
+                        $score.innerHTML += victory; 
+                        end = true;
+                    }
+                }
+            }
+        }
+    }
+}
+
 const draw = () => {
 
     if(!end){
@@ -76,21 +106,20 @@ const draw = () => {
         drawBall();
         drawBar();
         drawBricks();
-        console.log(end);
+        brokenBrick();
 
         if(x + speedX > $canvas.width - radiusBall || 
            x + speedX < radiusBall) speedX = -speedX;
  
-        if(y + speedY < radiusBall ) speedY = -speedY;
+        if(y + speedY < radiusBall) speedY = -speedY;
 
         if(y + speedY > $canvas.height - radiusBall){
-            if( x > barX && x < barX - barWidth){
+            if(x > barX && x < barX + barWidth){
                 speedX = speedX + 0.1;
                 speedY = speedY + 0.1;
                 speedY = -speedY;
             } else {
                 end = true;
-                console.log(end);
                 const gameOver = "<span id='fail'><br>Perdu ! <br>Clique sur le casse-brique pour rejouer</span>"
                 $score.innerHTML += gameOver; 
             }
@@ -108,8 +137,6 @@ draw();
 
 const moveMouse = e => {
     let posXBarCanvas = e.clientX - $canvas.offsetLeft;
-    
-    console.log(posXBarCanvas);
     
     if(posXBarCanvas > 35 && posXBarCanvas < $canvas.width - 35){
         barX = posXBarCanvas - barWidth / 2;

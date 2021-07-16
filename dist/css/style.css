@@ -37,5 +37,8 @@ section {
     section h2 #fail {
       font-size: smaller;
       color: #f55353; }
+    section h2 #victory {
+      font-size: smaller;
+      color: #61e761; }
 
 /*# sourceMappingURL=style.css.map */
