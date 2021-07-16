@@ -5,7 +5,8 @@ const ctx = $canvas.getContext("2d");
 $canvas.width = $canvas.getBoundingClientRect().width;
 $canvas.height = $canvas.getBoundingClientRect().height;
 
-const radiusBall = 10, barWidth = 75, barHeight = 10;
+const radiusBall = 10, barWidth = 75, barHeight = 10,
+nbCol = 8, nbRow = 5, widthBrick = 75, heightBrick = 20;
 
 let x = $canvas.width / 2, y = $canvas.height - 30,
 barX = ($canvas.width - barWidth) / 2;
@@ -13,14 +14,14 @@ barX = ($canvas.width - barWidth) / 2;
 const drawBall = () =>{
 
     ctx.beginPath();
-    ctx.arc(x, y, radiusBall, 0, Math.PI * 2, true);
+    ctx.arc(x, y, radiusBall, 0, Math.PI * 2);
     ctx.fillStyle = "#333";
     ctx.fill();
     ctx.closePath();
 
 }
 
-drawBall()
+drawBall();
 
 const drawBar = () =>{
 
@@ -31,4 +32,42 @@ const drawBar = () =>{
     ctx.closePath();
 }
 
-drawBar()
+drawBar();
+
+const bricks = [];
+
+for(let i = 0; i < nbRow; i++){
+    
+    bricks[i] = [];
+    
+    for(let j = 0; j < nbCol; j++){
+        bricks[i][j] = {x: 0, y: 0, status: 1};
+    }
+
+}
+
+console.log(bricks)
+
+const drawBricks = () => {
+
+    for(let i = 0; i < nbRow; i++){
+        for(let j = 0; j < nbCol; j++){
+
+            if(bricks[i][j].status === 1){
+                let brickX = (j * (widthBrick + 10) + 35 );
+                let brickY = (i * (heightBrick + 10) + 30 );
+
+                bricks[i][j].x = brickX;
+                bricks[i][j].y = brickY;
+
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, widthBrick, heightBrick);
+                ctx.fillStyle = "#333";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
+drawBricks();
