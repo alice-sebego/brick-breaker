@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: $font-stack;
 }
 
 body{
@@ -14,7 +15,7 @@ body{
 header{
     padding: 1vh 5vw;
     color: $light-color;
-    box-shadow: 0 .2em .3em rgba($color: $light-color, $alpha: .1);
+    box-shadow: 0 .2em .3em rgba($color: $primary-color, $alpha: .8);
 
     h1{
         text-align: center;
@@ -23,7 +24,7 @@ header{
 
         &::before{
             content: url(/dist/assets/brick-breaker.png);
-            background: rgba($color: $light-color, $alpha: .9);
+            background: rgba($color: $score-color, $alpha: .9);
             margin: .3em;
             display: inline-block;
             padding: .2em;
@@ -96,5 +97,31 @@ section{
             color: $victory-color;
         }
 
+    }
+}
+
+footer{
+    margin-top: 5vh;
+    padding: 2vh 5vw;
+    color: $light-color;
+    text-align: center;
+    line-height: 1.9em;
+    letter-spacing: .03em;
+    font-size: 0.9em;
+    box-shadow: 0 -.2em .2em rgba($color: $primary-color, $alpha: .8) ;
+
+    a{
+        color: $light-color;
+        text-decoration: underline $light-color;
+        transition: text-decoration .4s ease-in-out;
+
+        &:hover{
+            text-decoration: underline overline $score-color;
+        }
+    }
+
+    svg{
+        color: $score-color;
+        transform: scale(1.1);
     }
 }

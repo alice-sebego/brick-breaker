@@ -24,7 +24,6 @@ for(let i = 0; i < 5; i++){
 const $start = document.querySelector("nav > button");
 
 // INSTANCE OF GAME
-
 $start.addEventListener("click", () => {
 
     const brickBreaken = new Game($canvas, ctx, $canvas.width, $canvas.height, bricks, $score, $brickBroken);
@@ -34,3 +33,8 @@ $start.addEventListener("click", () => {
     $canvas.addEventListener("click", brickBreaken.resetGame);
     
 });
+
+// INSERT CURRENT YEAR ON THE FOOTER
+const $year = document.querySelector("#year");
+const date = new Date(Date.now());
+$year.textContent = date.getFullYear();

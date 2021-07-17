@@ -2,7 +2,8 @@
 *, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: "Montserrat", sans-serif; }
 
 body {
   background: #333;
@@ -11,14 +12,14 @@ body {
 header {
   padding: 1vh 5vw;
   color: #ddd;
-  box-shadow: 0 0.2em 0.3em rgba(221, 221, 221, 0.1); }
+  box-shadow: 0 0.2em 0.3em rgba(29, 29, 29, 0.8); }
   header h1 {
     text-align: center;
     font: 4vw "Ubuntu", sans-serif;
     text-transform: capitalize; }
     header h1::before {
       content: url(/dist/assets/brick-breaker.png);
-      background: rgba(221, 221, 221, 0.9);
+      background: rgba(57, 152, 230, 0.9);
       margin: .3em;
       display: inline-block;
       padding: .2em;
@@ -71,5 +72,24 @@ section {
     section h2 #victory {
       font-size: smaller;
       color: #61e761; }
+
+footer {
+  margin-top: 5vh;
+  padding: 2vh 5vw;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.9em;
+  letter-spacing: .03em;
+  font-size: 0.9em;
+  box-shadow: 0 -0.2em 0.2em rgba(29, 29, 29, 0.8); }
+  footer a {
+    color: #ddd;
+    text-decoration: underline #ddd;
+    transition: text-decoration .4s ease-in-out; }
+    footer a:hover {
+      text-decoration: underline overline #3998e6; }
+  footer svg {
+    color: #3998e6;
+    transform: scale(1.1); }
 
 /*# sourceMappingURL=style.css.map */
