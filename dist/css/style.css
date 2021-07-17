@@ -65,12 +65,12 @@ section {
     text-align: center; }
     section h2 #brick-broken {
       color: #3998e6;
-      font-weight: bold; }
+      font-weight: bolder; }
     section h2 #fail {
-      font-size: smaller;
+      font-size: .7em;
       color: #f55353; }
     section h2 #victory {
-      font-size: smaller;
+      font-size: .7em;
       color: #61e761; }
 
 footer {
@@ -91,5 +91,11 @@ footer {
   footer svg {
     color: #3998e6;
     transform: scale(1.1); }
+  footer hr {
+    width: 25%;
+    margin: 2vh auto;
+    border: 1px dotted #3998e6; }
+  footer #credit {
+    font-size: smaller; }
 
 /*# sourceMappingURL=style.css.map */

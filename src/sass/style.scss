@@ -84,16 +84,16 @@ section{
 
         #brick-broken{
             color: $score-color;
-            font-weight: bold;
+            font-weight: bolder;
         }
 
         #fail{
-            font-size: smaller;
+            font-size: .7em;
             color: $game-over;
         }
 
         #victory{
-            font-size: smaller;
+            font-size: .7em;
             color: $victory-color;
         }
 
@@ -123,5 +123,15 @@ footer{
     svg{
         color: $score-color;
         transform: scale(1.1);
+    }
+
+    hr{
+        width: 25%;
+        margin: 2vh auto;
+        border: 1px dotted $score-color;
+    }
+
+    #credit{
+        font-size: smaller;
     }
 }
