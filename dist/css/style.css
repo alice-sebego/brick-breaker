@@ -5,16 +5,26 @@
   padding: 0; }
 
 body {
-  background: #333; }
+  background: #333;
+  color: #1d1d1d; }
 
 header {
-  padding: 2vh 5vw;
+  padding: 1vh 5vw;
   color: #ddd;
   box-shadow: 0 0.2em 0.3em rgba(221, 221, 221, 0.1); }
   header h1 {
     text-align: center;
     font: 4vw "Ubuntu", sans-serif;
     text-transform: capitalize; }
+    header h1::before {
+      content: url(/dist/assets/brick-breaker.png);
+      background: rgba(221, 221, 221, 0.9);
+      margin: .3em;
+      display: inline-block;
+      padding: .2em;
+      transform: scale(0.7);
+      box-shadow: 0.1em 0.1em 0.2em rgba(29, 29, 29, 0.8);
+      border-radius: .1em; }
 
 nav {
   padding: 1vh 5vw;
@@ -44,7 +54,8 @@ section {
     margin: 1vh auto;
     width: 750px;
     height: 450px;
-    background: #ddd; }
+    background: #ddd;
+    box-shadow: 0.1em 0.1em 0.2em rgba(29, 29, 29, 0.8); }
     section canvas:hover {
       cursor: grab; }
   section h2 {
