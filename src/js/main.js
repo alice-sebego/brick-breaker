@@ -19,11 +19,18 @@ for(let i = 0; i < 5; i++){
     }
 }
 
+// BUTTONS START AND RESET
+const $start = document.querySelector("nav > button");
+
+
 // INSTANCE OF GAME
-const brickBreaken = new Game($canvas, ctx, $canvas.width, $canvas.height, bricks, $score, $brickBroken);
 
-brickBreaken.draw();
+$start.addEventListener("click", () => {
 
-document.addEventListener("mousemove", brickBreaken.moveMouse);
-
-$canvas.addEventListener("click", brickBreaken.resetGame);
+    const brickBreaken = new Game($canvas, ctx, $canvas.width, $canvas.height, bricks, $score, $brickBroken);
+    brickBreaken.draw();
+    document.addEventListener("mousemove", brickBreaken.moveMouse);
+    $start.disabled = true;
+    $canvas.addEventListener("click", brickBreaken.resetGame);
+    
+});
