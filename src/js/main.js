@@ -3,7 +3,6 @@ import Game from "./game.js";
 // HANDLE CANVAS
 const $canvas = document.querySelector("canvas");
 const ctx = $canvas.getContext("2d");
-console.log(typeof ctx);
 $canvas.width = $canvas.getBoundingClientRect().width;
 $canvas.height = $canvas.getBoundingClientRect().height;
 

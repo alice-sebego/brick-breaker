@@ -16,6 +16,25 @@ header {
     font: 4vw "Ubuntu", sans-serif;
     text-transform: capitalize; }
 
+nav {
+  padding: 1vh 5vw;
+  display: flex;
+  justify-content: center; }
+  nav button {
+    border: none;
+    margin: 1vh 2vw;
+    padding: .5em;
+    border-radius: .1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .02em; }
+    nav button:hover {
+      cursor: pointer; }
+    nav button:nth-child(1) {
+      background: #3998e6; }
+    nav button:nth-child(2) {
+      background: #f55353; }
+
 section {
   width: 95%;
   margin: 5vh auto;
