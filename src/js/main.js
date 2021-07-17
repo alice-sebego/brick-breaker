@@ -1,3 +1,4 @@
+import _ from "lodash";
 import Game from "./game.js";
 
 // HANDLE CANVAS
@@ -21,7 +22,6 @@ for(let i = 0; i < 5; i++){
 
 // BUTTONS START AND RESET
 const $start = document.querySelector("nav > button");
-
 
 // INSTANCE OF GAME
 
